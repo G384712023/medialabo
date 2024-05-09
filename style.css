@@ -1,0 +1,27 @@
+h1 {
+    background: linear-gradient(0.25turn,rgb(234, 97, 43), #fff3ec);
+    color: white;
+}
+
+h2 {
+    color:rgb(99, 99, 248)
+}
+
+a:link {
+    color:rgb(253, 116, 30);
+}
+
+a:visited {
+    color:blueviolet;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+p {
+    color:rgb(85, 85, 106);
+}
+div#sentence > div{
+    background: linear-gradient(0.25turn,#d3d1d1, #ffffff);
+}
