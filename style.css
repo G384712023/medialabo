@@ -25,3 +25,8 @@ p {
 div#sentence > div{
     background: linear-gradient(0.25turn,#d3d1d1, #ffffff);
 }
+
+img{
+    width: 200px;
+    float: right;
+}
