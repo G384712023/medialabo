@@ -7,6 +7,9 @@ h2 {
     color:rgb(99, 99, 248)
 }
 
+body {
+    background-color: rgb(255, 227, 171);
+}
 a:link {
     color:rgb(253, 116, 30);
 }
