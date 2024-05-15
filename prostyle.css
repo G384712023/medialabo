@@ -11,8 +11,10 @@ body{
 }
 
 h1{
-    border-bottom: solid 2px;
+    border-bottom: solid 2.5px;
+    background: linear-gradient(0.25turn,#d5bce6, rgb(203, 151, 233));
 }
+
 
 
 .main{
