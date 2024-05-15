@@ -21,6 +21,9 @@ h2{
     color: rgb(48, 48, 48);
 }
 
+h3 p{
+    text-decoration:underline;
+}
 th,td{
     text-align: center;
 }
