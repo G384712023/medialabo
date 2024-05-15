@@ -1,7 +1,38 @@
 table, th, td{
-    border:1px solid red;
+    border:1px solid rgb(255, 255, 255);
+    border-collapse: collapse;
+    border-width: 2px;
 }
 
 body{
-    background-image: url(Yakei.jpg);
+    background-image: url(Hikari.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1{
+    border-bottom: solid 2px;
+}
+
+.main{
+    font-size: 20px;
+}
+
+.main2{
+    font-size: 20px;
+}
+
+.position{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.position2{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: flex-end;
+   
 }
