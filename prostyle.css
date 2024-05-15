@@ -15,10 +15,18 @@ h1{
     background: linear-gradient(0.25turn,#d5bce6, rgb(203, 151, 233));
 }
 
+h2{
+    color: rgb(48, 48, 48);
+}
+
 th,td{
     text-align: center;
 }
 
+.sen{
+    border:1px solid rgb(0, 0, 0);
+    border-width: 2px;
+}
 .main{
     font-size: 20px;
 }
@@ -38,7 +46,12 @@ th,td{
 .una{ 
     width: 200px;
     right: 175px;
-    bottom: -600px;
+    bottom: -700px;
     position: absolute;
     -moz-right: 175px;
 }
+
+.kasen{
+    text-decoration:underline;
+}
+
