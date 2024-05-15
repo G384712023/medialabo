@@ -59,3 +59,14 @@ th,td{
     text-decoration:underline;
 }
 
+a:link{
+    color:rgb(235, 231, 107);
+}
+
+a:visited {
+    color:rgb(115, 255, 0);
+}
+
+a:hover{
+    text-decoration: none;
+}
