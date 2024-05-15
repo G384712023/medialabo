@@ -1,4 +1,6 @@
 table, th, td{
+    padding: 10px;
+    margin: 10px;
     border:1px solid rgb(255, 255, 255);
     border-collapse: collapse;
     border-width: 2px;
@@ -24,6 +26,8 @@ th,td{
 }
 
 .sen{
+    padding: 10px;
+    margin: 10px;
     border:1px solid rgb(0, 0, 0);
     border-width: 2px;
 }
