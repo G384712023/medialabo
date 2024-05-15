@@ -15,7 +15,9 @@ h1{
     background: linear-gradient(0.25turn,#d5bce6, rgb(203, 151, 233));
 }
 
-
+th,td{
+    text-align: center;
+}
 
 .main{
     font-size: 20px;
@@ -26,13 +28,17 @@ h1{
 }
 
 .yaki{
-    width: 150px;
-    left: 410px;
-    bottom: 570px;
+    width: 200px;
+    right: 175px;
+    bottom: 150px;
+    position: absolute;
+    -moz-right: 175px;
 }
 
-.una{
-    width: 150px;
-    left: 370px;
-    bottom: 270px;
+.una{ 
+    width: 200px;
+    right: 175px;
+    bottom: -600px;
+    position: absolute;
+    -moz-right: 175px;
 }
