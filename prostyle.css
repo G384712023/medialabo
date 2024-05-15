@@ -14,6 +14,7 @@ h1{
     border-bottom: solid 2px;
 }
 
+
 .main{
     font-size: 20px;
 }
@@ -22,17 +23,14 @@ h1{
     font-size: 20px;
 }
 
-.position{
+.yaki{
     width: 150px;
-    height: 150px;
-    display: flex;
-    justify-content: flex-end;
+    left: 410px;
+    bottom: 570px;
 }
 
-.position2{
+.una{
     width: 150px;
-    height: 150px;
-    display: flex;
-    justify-content: flex-end;
-   
+    left: 370px;
+    bottom: 270px;
 }
