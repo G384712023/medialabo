@@ -1,3 +1,7 @@
+body{
+    background-color: rgb(242, 220, 190);
+}
+
 h1 {
     background: linear-gradient(0.25turn,rgb(234, 97, 43), #fff3ec);
     color: white;
