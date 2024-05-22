@@ -28,12 +28,6 @@ th,td{
     text-align: center;
 }
 
-.sen{
-    padding: 10px;
-    margin: 10px;
-    border:1px solid rgb(0, 0, 0);
-    border-width: 2px;
-}
 .main{
     font-size: 20px;
 }
@@ -42,34 +36,6 @@ th,td{
     font-size: 20px;
 }
 
-.yaki{
-    width: 200px;
-    right: 175px;
-    bottom: 150px;
-    position: absolute;
-    -moz-right: 175px;
-}
-
-.una{ 
-    width: 200px;
-    right: 175px;
-    bottom: -700px;
-    position: absolute;
-    -moz-right: 175px;
-}
-
 .kasen{
     text-decoration:underline;
-}
-
-a:link{
-    color:rgb(235, 231, 107);
-}
-
-a:visited {
-    color:rgb(115, 255, 0);
-}
-
-a:hover{
-    text-decoration: none;
 }
