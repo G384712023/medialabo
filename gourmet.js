@@ -237,8 +237,10 @@ for(let i = 0; i < 2; i++){
     
   }
   
-  let dele = document.querySelector('h1#hh1');
+  let dele = document.querySelector('h1');
   dele.remove();
-  dele = document.querySelector('ul#datas');
+
+  dele = document.querySelector('ul');
   dele.remove();
+
 }
