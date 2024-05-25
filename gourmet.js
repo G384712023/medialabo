@@ -200,24 +200,45 @@ let data = {
 };
 
 /////////// 課題3-2 ここからプログラムを書こう
+let num = document.querySelector('div#result');
 
-console.log(data.results.shop[0].name);
-console.log(data.results.shop[0].catch); 
-console.log(data.results.shop[0].genre.name);
-console.log(data.results.shop[0].sub_genre.name);
-console.log(data.results.shop[0].access);
-console.log(data.results.shop[0].station_name);
-console.log(data.results.shop[0].address);
-console.log(data.results.shop[0].budget.name);
-console.log(data.results.shop[0].open);
-
-console.log(data.results.shop[1].name);
-console.log(data.results.shop[1].catch); 
-console.log(data.results.shop[1].genre.name);
-console.log(data.results.shop[1].sub_genre.name);
-console.log(data.results.shop[1].access);
-console.log(data.results.shop[1].station_name);
-console.log(data.results.shop[1].address);
-console.log(data.results.shop[1].budget.name);
-console.log(data.results.shop[1].open);
-
+for(let i = 0; i < 2; i++){
+  for(let j = 0; j < 9; j++){
+    let a = document.createElement('p');
+    num.insertAdjacentElement('beforeend', a);
+    if(j == 0){
+      a.textContent = (data.results.shop[i].name);
+    }
+    if(j == 1){
+      a.textContent = (data.results.shop[i].catch);
+    }
+    if(j == 2){
+      a.textContent = (data.results.shop[i].genre.name);
+    }
+    if(j == 3){
+      a.textContent = (data.results.shop[i].sub_genre.name);
+    }
+    if(j == 4){
+      a.textContent = (data.results.shop[i].access);
+    }
+    if(j == 5){
+      a.textContent = (data.results.shop[i].station_name);
+    }
+    if(j == 6){
+      a.textContent = (data.results.shop[i].address);
+    }
+    if(j == 7){
+      a.textContent = (data.results.shop[i].budget.name);
+    }
+    if(j == 8){
+      a.textContent = (data.results.shop[i].open);
+    }
+    
+    
+  }
+  
+  let dele = document.querySelector('h1#hh1');
+  dele.remove();
+  dele = document.querySelector('ul#datas');
+  dele.remove();
+}
