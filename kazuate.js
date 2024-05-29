@@ -8,16 +8,16 @@ let kaisu = 1;
 // 予想を4回実行する
 // 将来以下の hantei(); の4回の呼び出しを全て削除する
 // 代わりにここでは，ボタンを押したら hantei() を呼び出すイベント処理をする
-hantei();
-hantei();
-hantei();
-hantei();
+let a = document.querySelector('#print');
+a.addEventListener('click', hantei);
 
 // ボタンを押した後の処理をする関数 hantei() の定義
 function hantei() {
 
   // 将来ここでは 4 ではなくテキストボックスに指定された数値を yoso に代入する
-  let yoso = 4;
+  let inp = document.querySelector('input[name="number"]');
+  let number = inp.value;
+  let num100 = Number(number);
   
   // 課題3-1: 正解判定する
   // kotae と yoso が一致するかどうか調べて結果を出力
@@ -25,14 +25,14 @@ function hantei() {
   let num = document.querySelector('span#kaisu');
   num.textContent = (kaisu);
   let num1 = document.querySelector('span#answer');
-  num1.textContent = (yoso);
+  num1.textContent = (num100);
   let ans = document.querySelector('p#result');
   if(kaisu < 4){
-    if(yoso===kotae){
+    if(num100===kotae){
         ans.textContent = ("正解です.おめでとう！");
     }else if(kaisu===3){
         ans.textContent = ("まちがい. 残念でした答えは " + kotae + "です.");
-    }else if(kaisu <= 2 && yoso < kotae){
+    }else if(kaisu <= 2 && num100 < kotae){
         ans.textContent = ("まちがい. 答えはもっと大きいですよ ");
     }else{
         ans.textContent = ("まちがい. 答えはもっと小さいですよ ");
