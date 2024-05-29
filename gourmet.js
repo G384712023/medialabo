@@ -201,6 +201,15 @@ let data = {
 
 /////////// 課題3-2 ここからプログラムを書こう
 //ul要素の追加
+let a = document.querySelector('#print');
+a.addEventListener('click', otpt);
+
+function otpt(){
+  let inp = document.querySelector('input[name="sentence"]');
+  let number = inp.value;
+  console.log('検索キー:' + number);
+}
+
 let num = document.querySelector('div#result');
 let lis = document.createElement('ul');
 lis.classList.add('all');
