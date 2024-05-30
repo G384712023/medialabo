@@ -4,10 +4,10 @@
 let a = document.querySelector('#print');
 a.addEventListener('click', otpt);
 
-let key = document.querySelector('input[name="sentence"]');
+//let key = document.querySelector('input[name="sentence"]');
 
 function otpt(){
-  let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/' + key + '.json';
+  let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/G001.json';
 
 	// 通信開始
 	axios.get(url)
@@ -91,7 +91,7 @@ num4.insertAdjacentElement('beforeend', p1);
 
 //p要素の中の文章(店名)
 let num5 = document.querySelector('h3.text2 > p');
-num5.textContent = data.results.shop[0].name ;	
+num5.textContent = 'バグダッドカフェ Bagdadcafe/モータウン MOTOWN' ;	
 
 //h3要素の中にp要素を追加
 let num6 = document.querySelector('div.main');
@@ -100,7 +100,7 @@ num6.insertAdjacentElement('beforeend', p2);
 
 //p要素の中の文章(キャッチコピー)
 let num7 = document.querySelector('div.main > p');
-num7.textContent = data.results.shop[0].catch ;	
+num7.textContent = 'サプライズ演出有】 結婚パーティー受付中' ;	
 
 //見やすいようにp要素
 let num8 = document.querySelector('ul.body');
@@ -215,7 +215,7 @@ num18.insertAdjacentElement('beforeend', p4);
 
 //p要素の中の文章(店名)
 let num19 = document.querySelector('h3.text3 > p');
-num19.textContent = data.results.shop[1].name ;	
+num19.textContent = '隠れ家バル Funny&Bouquet' ;	
 
 //h3要素の中にp要素を追加
 let num20 = document.querySelector('div.main2');
@@ -224,7 +224,7 @@ num20.insertAdjacentElement('beforeend', p5);
 
 //p要素の中の文章(キャッチコピー)
 let num21 = document.querySelector('div.main2 > p');
-num21.textContent = data.results.shop[1].catch ;	
+num21.textContent = '2.5時間飲み放題付2000円~ 【★少人数様ソファー★】';	
 
 //見やすいようにp要素
 let num22 = document.querySelector('ul.body1');
