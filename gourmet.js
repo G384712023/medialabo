@@ -8,10 +8,9 @@ a.addEventListener('click', otpt);
 
 function otpt(){
   let inp = document.querySelector('input[name="sentence"]');
-  let number = inp.value;
   let genre;
-  if(inp.value === 'カフェ'){
-    genre = 'G014';
+  if(inp.value === 'カフェ' || inp.value === '居酒屋' ){
+    genre = 'G001';
   }
   let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/'+genre+'.json';
 
@@ -38,7 +37,7 @@ function showResult(resp) {
 		data = JSON.parse(data);
 	}
 
-  r();
+  r(data);
 
 	// data をコンソールに出力
 	console.log(data);
