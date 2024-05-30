@@ -100,7 +100,7 @@ num6.insertAdjacentElement('beforeend', p2);
 
 //p要素の中の文章(キャッチコピー)
 let num7 = document.querySelector('div.main > p');
-num7.textContent = 'サプライズ演出有】 結婚パーティー受付中' ;	
+num7.textContent = '【サプライズ演出有】 結婚パーティー受付中' ;	
 
 //見やすいようにp要素
 let num8 = document.querySelector('ul.body');
