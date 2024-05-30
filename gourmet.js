@@ -7,7 +7,14 @@ a.addEventListener('click', otpt);
 //let key = document.querySelector('input[name="sentence"]');
 
 function otpt(){
-  let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/G001.json';
+  let inp = document.querySelector('input[name="sentence"]');
+  let number = inp.value;
+  let genre;
+  if(inp.value === 'カフェ'){
+    genre = 'G014';
+  }
+  let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/'+genre+'.json';
+
 
 	// 通信開始
 	axios.get(url)
