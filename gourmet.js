@@ -37,7 +37,10 @@ function showResult(resp) {
 		data = JSON.parse(data);
 	}
 
-  r(data);
+  let keyword = document.querySelector('input[name="sentence"]').value;
+  //r(data);
+  let filteredData = data.results.shop.filter(shop => shop.name.includes(keyword));
+  r(filteredData);
 
 	// data をコンソールに出力
 	console.log(data);
@@ -60,18 +63,21 @@ function r(data){
 
 
 let num = document.querySelector('div#result');
+num.innerHTML = '';
+
+data.forEach((shop, index) => {
 let lis = document.createElement('ul');
 lis.classList.add('all');
 num.insertAdjacentElement('beforeend', lis);
 
 //h2要素の追加
-let num1 = document.querySelector('ul.all');
+let num1 = document.querySelector('ul.all:last-child');
 let htwo = document.createElement('h2');
 num1.insertAdjacentElement('beforeend', htwo);
 
 //h2要素の中の文章
-let htwotext = document.querySelector('ul.all > h2');
-htwotext.textContent = '＜検索結果1件目＞';	
+let htwotext = document.querySelector('ul.all:last-child > h2');
+htwotext.textContent = `＜検索結果${index + 1}件目＞`;	
 
 //ul要素の追加
 let lis1 = document.createElement('ul');
@@ -79,44 +85,44 @@ lis1.classList.add('body');
 num1.insertAdjacentElement('beforeend', lis1);
 
 //div要素の追加
-let num2 = document.querySelector('ul.body');
+let num2 = document.querySelector('ul.body:last-child');
 let divs = document.createElement('div');
 divs.classList.add('main');
 num2.insertAdjacentElement('beforeend', divs);
 
 //h3要素の追加
-let num3 = document.querySelector('div.main');
+let num3 = document.querySelector('div.main:last-child');
 let hthree = document.createElement('h3');
 hthree.classList.add('text2');
 num3.insertAdjacentElement('beforeend', hthree);
 
 //h3要素の中にp要素を追加
-let num4 = document.querySelector('h3.text2');
+let num4 = document.querySelector('h3.text2:last-child');
 let p1 = document.createElement('p');
 num4.insertAdjacentElement('beforeend', p1);
 
 //p要素の中の文章(店名)
-let num5 = document.querySelector('h3.text2 > p');
-num5.textContent = 'バグダッドカフェ Bagdadcafe/モータウン MOTOWN' ;	
+let num5 = document.querySelector('h3.text2:last-child > p');
+num5.textContent = shop.name;	
 
 //h3要素の中にp要素を追加
-let num6 = document.querySelector('div.main');
+let num6 = document.querySelector('div.main:last-child');
 let p2 = document.createElement('p');
 num6.insertAdjacentElement('beforeend', p2);
 
 //p要素の中の文章(キャッチコピー)
-let num7 = document.querySelector('div.main > p');
-num7.textContent = '【サプライズ演出有】 結婚パーティー受付中' ;	
+let num7 = document.querySelector('div.main:last-child> p');
+num7.textContent =  shop.catch ;	
 
 //見やすいようにp要素
-let num8 = document.querySelector('ul.body');
+let num8 = document.querySelector('ul.body:last-child');
 let p3 = document.createElement('p');
 num8.insertAdjacentElement('beforeend', p3);
-let padd = document.querySelector('ul.body > p');
+let padd = document.querySelector('ul.body:last-child > p');
 padd.textContent = '　' ;	
 
 //ジャンルから予算までのループ
-let num9 = document.querySelector('ul.body');
+let num9 = document.querySelector('ul.body:last-child');
 for(let i = 0; i < 6; i++){
   //li.listg[i]の追加
   let lists = document.createElement('li');
@@ -124,40 +130,40 @@ for(let i = 0; i < 6; i++){
   lists.classList.add('listg' + i);
 
   //li.listg[i]の子要素pの追加
-  let num10 = document.querySelector('ul.body > li.listg' + i);
+  let num10 = document.querySelector('ul.body:last-child > li.listg' + i);
   let p4 = document.createElement('p');
   num10.insertAdjacentElement('beforeend', p4);
 
   //pの中身の追加
   let num11 = document.querySelector('li.listg' + i + '> p');
   if(i == 0){
-    num11.textContent = 'ジャンル:居酒屋';	
+    num11.textContent = 'ジャンル:' + shop.genre.name;	
   }
   if(i == 1){
-    num11.textContent = 'サブジャンル:ダイニングバー・バル';	
+    num11.textContent = 'サブジャンル:' + shop.sub_genre.name;	
   }
   if(i == 2){
-    num11.textContent = 'アクセス:京王八王子駅を背にし右手に見えるローソンの隣のビル、ホテルザ・ビーの2階です。';	
+    num11.textContent = 'アクセス:' + shop.access;	
   }
   if(i == 3){
-    num11.textContent = '最寄駅:京王八王子' ;	
+    num11.textContent = '最寄駅:' + shop.station_name;	
   }
   if(i == 4){
-    num11.textContent = '住所:東京都八王子市明神町４-6-12　ホテル・ザ・ビー八王子（旧八王子プラザホテル）2F';	
+    num11.textContent = '住所:' + shop.address;	
   }
   if(i == 5){
-    num11.textContent = '予算:3001～4000円';	
+    num11.textContent = '予算:' + shop.budget.average;	
   }
 
   
 }
 
 //表の追加
-let num12 = document.querySelector('ul.body');
+let num12 = document.querySelector('ul.body:last-child');
 let tbl = document.createElement('table');
 num12.insertAdjacentElement('beforeend', tbl);
 
-let num13 = document.querySelector('table');
+let num13 = document.querySelector('table:last-child');
 let tblhead = tbl.createTHead();
 let tblbody = tbl.createTBody();
 let tr1 = tblhead.insertRow();
@@ -169,16 +175,16 @@ th1.appendChild(document.createTextNode('営業日と営業時間'));
 
 th1 = document.createElement('th');
 tr2.appendChild(th1);
-th1.appendChild(document.createTextNode('月～日、祝日、祝前日: 17:00～21:00 （料理L.O. 20:00 ドリンクL.O. 20:00）'));
+th1.appendChild(document.createTextNode(shop.open));
   
 //見やすいようにp要素
-let num99 = document.querySelector('ul.all');
+let num99 = document.querySelector('ul.all:last-child');
 let p99 = document.createElement('p');
 p99.classList.add('vvv');
 num99.insertAdjacentElement('beforeend', p99);
-let padd99 = document.querySelector('ul.all > p.vvv');
+let padd99 = document.querySelector('ul.all:last-child > p.vvv');
 padd99.textContent = '　' ;	
-
+});
 
 
 ///////////////////////////////////////////////////////////////////////////
