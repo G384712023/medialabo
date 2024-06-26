@@ -73,6 +73,10 @@ function showResult(resp) {
   let resultDiv = document.querySelector('div#result');
   resultDiv.innerHTML = '';
 
+  let hitCount = data.results.shop.length;
+  let hitCountMessage = `<p>検索結果: ${hitCount}件ヒットしました</p>`;
+  resultDiv.insertAdjacentHTML('beforeend', hitCountMessage);
+
   data.results.shop.forEach((shop, index) => {
     let shopInfo = `
       <ul>
