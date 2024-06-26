@@ -7,10 +7,58 @@ a.addEventListener('click', otpt);
 //let key = document.querySelector('input[name="sentence"]');
 
 function otpt(){
-  let inp = document.querySelector('input[name="sentence"]');
+  //let inp = document.querySelector('input[name="sentence"]');
   let genre;
-  if(inp.value === 'カフェ' || inp.value === '居酒屋' ){
+  if(inp.value === '居酒屋' ){
     genre = 'G001';
+  }
+  if(inp.value === 'ダイニングバー・バル' ){
+    genre = 'G002';
+  }
+  if(inp.value === '創作料理' ){
+    genre = 'G003';
+  }
+  if(inp.value === '和食' ){
+    genre = 'G004';
+  }
+  if(inp.value === '洋食' ){
+    genre = 'G005';
+  }
+  if(inp.value === 'イタリアン・フレンチ' ){
+    genre = 'G006';
+  }
+  if(inp.value === '中華' ){
+    genre = 'G007';
+  }
+  if(inp.value === '焼肉・ホルモン' ){
+    genre = 'G008';
+  }
+  if(inp.value === 'アジア・エスニック料理' ){
+    genre = 'G009';
+  }
+  if(inp.value === '各国料理' ){
+    genre = 'G010';
+  }
+  if(inp.value === 'カラオケ・パーティ' ){
+    genre = 'G011';
+  }
+  if(inp.value === 'バー・カクテル' ){
+    genre = 'G012';
+  }
+  if(inp.value === 'ラーメン' ){
+    genre = 'G013';
+  }
+  if(inp.value === 'カフェ・スイーツ' ){
+    genre = 'G014';
+  }
+  if(inp.value === 'その他グルメ' ){
+    genre = 'G015';
+  }
+  if(inp.value === 'お好み焼き・もんじゃ' ){
+    genre = 'G016';
+  }
+  if(inp.value === '韓国料理' ){
+    genre = 'G017';
   }
   let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/'+genre+'.json';
 

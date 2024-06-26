@@ -9,8 +9,27 @@
     </head>
     <body>
         <h1>グルメ情報</h1> 
-        <label for="input">検索キー: </label>
-        <input type="search" name="sentence" size="15">
+        <label for="input">プルダウンメニュー: </label>
+        <select name="gourmet" id="gourmet">
+            <option value="">ジャンルを選んでください</option>
+            <option value="iza">居酒屋</option>
+            <option value="dai">ダイニングバー・バル</option>
+            <option value="iza">創作料理</option>
+            <option value="wa">和食</option>
+            <option value="you">洋食</option>
+            <option value="italy">イタリアン・フレンチ</option>
+            <option value="china">中華</option>
+            <option value="yaki">焼肉・ホルモン</option>
+            <option value="asia">アジア・エスニック料理</option>
+            <option value="con">各国料理</option>
+            <option value="kara">カラオケ・パーティ</option>
+            <option value="bar">バー・カクテル</option>
+            <option value="ramen">ラーメン</option>
+            <option value="cafe">カフェ・スイーツ</option>
+            <option value="other">その他グルメ</option>
+            <option value="oko">お好み焼き・もんじゃ</option>
+            <option value="korea">韓国料理</option>
+        </select>
         <button id="print">検索</button>
         <div id="result">
 
