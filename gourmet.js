@@ -69,16 +69,17 @@ function showResult(resp) {
 	if (typeof data === 'string') {
 		data = JSON.parse(data);
 	}
-  ///////////////////////
+  
   let resultDiv = document.querySelector('div#result');
   resultDiv.innerHTML = '';
 
   let hitCount = data.results.shop.length;
-  let hitCountMessage = `<p>検索結果: ${hitCount}件ヒットしました</p>`;
+  let hitCountMessage = `<h2><p>検索結果: ${hitCount}件ヒットしました</p></h2>`;
   resultDiv.insertAdjacentHTML('beforeend', hitCountMessage);
 
   data.results.shop.forEach((shop, index) => {
     let shopInfo = `
+      <h2>検索結果${index + 1}件目</h2>
       <ul>
         <li><strong>${shop.name}</strong></li>
         <li>${shop.catch}</li>
@@ -91,11 +92,6 @@ function showResult(resp) {
     `;
     resultDiv.insertAdjacentHTML('beforeend', shopInfo);
   });
-  ////////////////////////////////
-  //let keyword = document.querySelector('input[name="sentence"]').value;
-  //r(data);
-  //let filteredData = data.results.shop.filter(shop => shop.name.includes(keyword));
-  //r(filteredData);
 
 	// data をコンソールに出力
 	console.log(data);
