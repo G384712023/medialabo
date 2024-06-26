@@ -7,58 +7,43 @@ a.addEventListener('click', otpt);
 //let key = document.querySelector('input[name="sentence"]');
 
 function otpt(){
-  //let inp = document.querySelector('input[name="sentence"]');
+  let inp = document.querySelector('select#gourmet');
   let genre;
-  if(inp.value === '居酒屋' ){
-    genre = 'G001';
-  }
-  if(inp.value === 'ダイニングバー・バル' ){
-    genre = 'G002';
-  }
-  if(inp.value === '創作料理' ){
-    genre = 'G003';
-  }
-  if(inp.value === '和食' ){
-    genre = 'G004';
-  }
-  if(inp.value === '洋食' ){
-    genre = 'G005';
-  }
-  if(inp.value === 'イタリアン・フレンチ' ){
-    genre = 'G006';
-  }
-  if(inp.value === '中華' ){
-    genre = 'G007';
-  }
-  if(inp.value === '焼肉・ホルモン' ){
-    genre = 'G008';
-  }
-  if(inp.value === 'アジア・エスニック料理' ){
-    genre = 'G009';
-  }
-  if(inp.value === '各国料理' ){
-    genre = 'G010';
-  }
-  if(inp.value === 'カラオケ・パーティ' ){
-    genre = 'G011';
-  }
-  if(inp.value === 'バー・カクテル' ){
-    genre = 'G012';
-  }
-  if(inp.value === 'ラーメン' ){
-    genre = 'G013';
-  }
-  if(inp.value === 'カフェ・スイーツ' ){
-    genre = 'G014';
-  }
-  if(inp.value === 'その他グルメ' ){
-    genre = 'G015';
-  }
-  if(inp.value === 'お好み焼き・もんじゃ' ){
-    genre = 'G016';
-  }
-  if(inp.value === '韓国料理' ){
-    genre = 'G017';
+  switch (inp.value) {
+    case 'iza': genre = 'G001'; 
+    break;
+    case 'dai': genre = 'G002'; 
+    break;
+    case 'sou': genre = 'G003'; 
+    break;
+    case 'wa': genre = 'G004'; 
+    break;
+    case 'you': genre = 'G005'; 
+    break;
+    case 'italy': genre = 'G006'; 
+    break;
+    case 'china': genre = 'G007'; 
+    break;
+    case 'yaki': genre = 'G008'; 
+    break;
+    case 'asia': genre = 'G009'; 
+    break;
+    case 'con': genre = 'G010'; 
+    break;
+    case 'kara': genre = 'G011'; 
+    break;
+    case 'bar': genre = 'G012'; 
+    break;
+    case 'ramen': genre = 'G013'; 
+    break;
+    case 'cafe': genre = 'G014'; 
+    break;
+    case 'other': genre = 'G015'; 
+    break;
+    case 'oko': genre = 'G016';
+    break;
+    case 'korea': genre = 'G017'; 
+    break;
   }
   let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/'+genre+'.json';
 
@@ -84,11 +69,29 @@ function showResult(resp) {
 	if (typeof data === 'string') {
 		data = JSON.parse(data);
 	}
+  ///////////////////////
+  let resultDiv = document.querySelector('div#result');
+  resultDiv.innerHTML = '';
 
-  let keyword = document.querySelector('input[name="sentence"]').value;
+  data.results.shop.forEach((shop, index) => {
+    let shopInfo = `
+      <ul>
+        <li><strong>${shop.name}</strong></li>
+        <li>${shop.catch}</li>
+        <li>ジャンル: ${shop.genre.name}</li>
+        <li>住所: ${shop.address}</li>
+        <li>アクセス: ${shop.access}</li>
+        <li>予算: ${shop.budget.average}</li>
+        <li>営業時間: ${shop.open}</li>
+      </ul>
+    `;
+    resultDiv.insertAdjacentHTML('beforeend', shopInfo);
+  });
+  ////////////////////////////////
+  //let keyword = document.querySelector('input[name="sentence"]').value;
   //r(data);
-  let filteredData = data.results.shop.filter(shop => shop.name.includes(keyword));
-  r(filteredData);
+  //let filteredData = data.results.shop.filter(shop => shop.name.includes(keyword));
+  //r(filteredData);
 
 	// data をコンソールに出力
 	console.log(data);
@@ -107,254 +110,3 @@ function finish() {
 	console.log('Ajax 通信が終わりました');
 }
 
-function r(data){
-
-
-let num = document.querySelector('div#result');
-num.innerHTML = '';
-
-data.forEach((shop, index) => {
-let lis = document.createElement('ul');
-lis.classList.add('all');
-num.insertAdjacentElement('beforeend', lis);
-
-//h2要素の追加
-let num1 = document.querySelector('ul.all:last-child');
-let htwo = document.createElement('h2');
-num1.insertAdjacentElement('beforeend', htwo);
-
-//h2要素の中の文章
-let htwotext = document.querySelector('ul.all:last-child > h2');
-htwotext.textContent = `＜検索結果${index + 1}件目＞`;	
-
-//ul要素の追加
-let lis1 = document.createElement('ul');
-lis1.classList.add('body');
-num1.insertAdjacentElement('beforeend', lis1);
-
-//div要素の追加
-let num2 = document.querySelector('ul.body:last-child');
-let divs = document.createElement('div');
-divs.classList.add('main');
-num2.insertAdjacentElement('beforeend', divs);
-
-//h3要素の追加
-let num3 = document.querySelector('div.main:last-child');
-let hthree = document.createElement('h3');
-hthree.classList.add('text2');
-num3.insertAdjacentElement('beforeend', hthree);
-
-//h3要素の中にp要素を追加
-let num4 = document.querySelector('h3.text2:last-child');
-let p1 = document.createElement('p');
-num4.insertAdjacentElement('beforeend', p1);
-
-//p要素の中の文章(店名)
-let num5 = document.querySelector('h3.text2:last-child > p');
-num5.textContent = shop.name;	
-
-//h3要素の中にp要素を追加
-let num6 = document.querySelector('div.main:last-child');
-let p2 = document.createElement('p');
-num6.insertAdjacentElement('beforeend', p2);
-
-//p要素の中の文章(キャッチコピー)
-let num7 = document.querySelector('div.main:last-child> p');
-num7.textContent =  shop.catch ;	
-
-//見やすいようにp要素
-let num8 = document.querySelector('ul.body:last-child');
-let p3 = document.createElement('p');
-num8.insertAdjacentElement('beforeend', p3);
-let padd = document.querySelector('ul.body:last-child > p');
-padd.textContent = '　' ;	
-
-//ジャンルから予算までのループ
-let num9 = document.querySelector('ul.body:last-child');
-for(let i = 0; i < 6; i++){
-  //li.listg[i]の追加
-  let lists = document.createElement('li');
-  num9.insertAdjacentElement('beforeend', lists);
-  lists.classList.add('listg' + i);
-
-  //li.listg[i]の子要素pの追加
-  let num10 = document.querySelector('ul.body:last-child > li.listg' + i);
-  let p4 = document.createElement('p');
-  num10.insertAdjacentElement('beforeend', p4);
-
-  //pの中身の追加
-  let num11 = document.querySelector('li.listg' + i + '> p');
-  if(i == 0){
-    num11.textContent = 'ジャンル:' + shop.genre.name;	
-  }
-  if(i == 1){
-    num11.textContent = 'サブジャンル:' + shop.sub_genre.name;	
-  }
-  if(i == 2){
-    num11.textContent = 'アクセス:' + shop.access;	
-  }
-  if(i == 3){
-    num11.textContent = '最寄駅:' + shop.station_name;	
-  }
-  if(i == 4){
-    num11.textContent = '住所:' + shop.address;	
-  }
-  if(i == 5){
-    num11.textContent = '予算:' + shop.budget.average;	
-  }
-
-  
-}
-
-//表の追加
-let num12 = document.querySelector('ul.body:last-child');
-let tbl = document.createElement('table');
-num12.insertAdjacentElement('beforeend', tbl);
-
-let num13 = document.querySelector('table:last-child');
-let tblhead = tbl.createTHead();
-let tblbody = tbl.createTBody();
-let tr1 = tblhead.insertRow();
-let tr2 = tblbody.insertRow();
-
-let th1 = document.createElement('th');
-tr1.appendChild(th1);
-th1.appendChild(document.createTextNode('営業日と営業時間'));
-
-th1 = document.createElement('th');
-tr2.appendChild(th1);
-th1.appendChild(document.createTextNode(shop.open));
-  
-//見やすいようにp要素
-let num99 = document.querySelector('ul.all:last-child');
-let p99 = document.createElement('p');
-p99.classList.add('vvv');
-num99.insertAdjacentElement('beforeend', p99);
-let padd99 = document.querySelector('ul.all:last-child > p.vvv');
-padd99.textContent = '　' ;	
-});
-
-
-///////////////////////////////////////////////////////////////////////////
-//ul要素の追加
-let num14 = document.querySelector('div#result');
-let lis2 = document.createElement('ul');
-lis2.classList.add('all2');
-num14.insertAdjacentElement('beforeend', lis2);
-
-//h2要素の追加
-let num15 = document.querySelector('ul.all2');
-let htwo1 = document.createElement('h2');
-num15.insertAdjacentElement('beforeend', htwo1);
-
-//h2要素の中の文章
-let htwotext1 = document.querySelector('ul.all2 > h2');
-htwotext1.textContent = '＜検索結果2件目＞';	
-
-//ul要素の追加
-let lis3 = document.createElement('ul');
-lis3.classList.add('body1');
-num15.insertAdjacentElement('beforeend', lis3);
-
-//div要素の追加
-let num16 = document.querySelector('ul.body1');
-let divs1 = document.createElement('div');
-divs1.classList.add('main2');
-num16.insertAdjacentElement('beforeend', divs1);
-
-//h3要素の追加
-let num17 = document.querySelector('div.main2');
-let hthree1 = document.createElement('h3');
-hthree1.classList.add('text3');
-num17.insertAdjacentElement('beforeend', hthree1);
-
-//h3要素の中にp要素を追加
-let num18 = document.querySelector('h3.text3');
-let p4 = document.createElement('p');
-num18.insertAdjacentElement('beforeend', p4);
-
-//p要素の中の文章(店名)
-let num19 = document.querySelector('h3.text3 > p');
-num19.textContent = '隠れ家バル Funny&Bouquet' ;	
-
-//h3要素の中にp要素を追加
-let num20 = document.querySelector('div.main2');
-let p5 = document.createElement('p');
-num20.insertAdjacentElement('beforeend', p5);
-
-//p要素の中の文章(キャッチコピー)
-let num21 = document.querySelector('div.main2 > p');
-num21.textContent = '2.5時間飲み放題付2000円~ 【★少人数様ソファー★】';	
-
-//見やすいようにp要素
-let num22 = document.querySelector('ul.body1');
-let p6 = document.createElement('p');
-num22.insertAdjacentElement('beforeend', p6);
-let padd1 = document.querySelector('ul.body1 > p');
-padd1.textContent = '　' ;	
-
-//ジャンルから予算までのループ
-let num23 = document.querySelector('ul.body1');
-for(let i = 0; i < 6; i++){
-  //li.listg[i]の追加
-  let lists1 = document.createElement('li');
-  num23.insertAdjacentElement('beforeend', lists1);
-  lists1.classList.add('listg1' + i);
-
-  //li.listg[i]の子要素pの追加
-  let num24 = document.querySelector('ul.body1 > li.listg1' + i);
-  let p7 = document.createElement('p');
-  num24.insertAdjacentElement('beforeend', p7);
-
-  //pの中身の追加
-  let num25 = document.querySelector('li.listg1' + i + '> p');
-  if(i == 0){
-    num25.textContent = 'ジャンル:居酒屋';	
-  }
-  if(i == 1){
-    num25.textContent = 'サブジャンル:ダイニングバー・バル';	
-  }
-  if(i == 2){
-    num25.textContent = 'アクセス:ＪＲ八王子駅北口徒歩1分/京王八王子駅徒歩3分';	
-  }
-  if(i == 3){
-    num25.textContent = '最寄駅:八王子';	
-  }
-  if(i == 4){
-    num25.textContent = '住所:東京都八王子市東町12-14';	
-  }
-  if(i == 5){
-    num25.textContent = '予算:2001～3000円';	
-  }
-
-  
-}
-
-//表の追加
-let num26 = document.querySelector('ul.body1');
-let tbl1 = document.createElement('table');
-tbl1.classList.add('tbl1');
-num26.insertAdjacentElement('beforeend', tbl1);
-
-let num27 = document.querySelector('table.tbl1');
-let tblhead1 = tbl1.createTHead();
-let tblbody1 = tbl1.createTBody();
-let tr3 = tblhead1.insertRow();
-let tr4 = tblbody1.insertRow();
-
-let th2 = document.createElement('th');
-tr3.appendChild(th2);
-th2.appendChild(document.createTextNode('営業日と営業時間'));
-
-th2 = document.createElement('th');
-tr4.appendChild(th2);
-th2.appendChild(document.createTextNode('月～日、祝日、祝前日: 17:00～翌5:00 （料理L.O. 翌3:00 ドリンクL.O. 翌4:00）'));
-  
-//見やすいようにp要素
-let num999 = document.querySelector('ul.all2');
-let p999 = document.createElement('p');
-p999.classList.add('vvvv');
-num999.insertAdjacentElement('beforeend', p999);
-let padd999 = document.querySelector('ul.all2 > p.vvvv');
-padd999.textContent = '　' ;	
-}
